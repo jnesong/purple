@@ -13,7 +13,10 @@ function fibonacci(n){
     } 
     else if (n === 1 || n === 2) {
         return 1
-    } else {
+    } else if (Number.isInteger(n)===false) {
+        return null
+    }
+    else {
         let fib = [0, 1, 1]
         for (i = 2; i < n; i++) {
             let next = fib[i] + fib[i-1]
@@ -28,7 +31,15 @@ console.log(fibonacci(0)=== 0)
 console.log(fibonacci(1)=== 1)
 console.log(fibonacci(2)=== 1)
 console.log(fibonacci(3)=== 2)
-console.log(fibonacci(3))
+console.log(fibonacci(10)=== 55)
+console.log(fibonacci("a")=== null)
+console.log(fibonacci("a"))
+console.log(fibonacci("-4"))
+
+
+
+module.exports = fibonacci
+
 
 
 
