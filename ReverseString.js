@@ -1,3 +1,4 @@
+
 function reverseString (str){
     let old = str.split("")
     // console.log(old)
@@ -10,20 +11,5 @@ function reverseString (str){
   
   }
 
-  console.log("Expecting: 'ih'");
-  console.log("=>", reverseString("hi"));
 
-  console.log("");
-
-  console.log("Expecting: 'ybabtac'");
-  console.log("=>", reverseString("catbaby"));
-
-  console.log("");
-
-  console.log("Expecting: empty");
-  console.log("=>", reverseString(""));
-
-  console.log("");
-
-  console.log("Expecting: a");
-  console.log("=>", reverseString("a"));
+  module.exports = reverseString
