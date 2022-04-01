@@ -1,0 +1,23 @@
+{
+  "name": "purple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ReverseString.js",
+  "scripts": {
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jnesong/purple.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnesong/purple/issues"
+  },
+  "homepage": "https://github.com/jnesong/purple#readme",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
+}
