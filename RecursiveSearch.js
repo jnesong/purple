@@ -17,7 +17,9 @@ function recursiveSearch(array, target) {
     }
 }
 
-console.log(recursiveSearch([0, 1, 23, 4], 1) === true)
-console.log(recursiveSearch([3, 2, 1], 4) === false)
-console.log(recursiveSearch([0, 1, 23, 4], 2) === false)
-console.log(recursiveSearch([1, 2, 3], 2) === true)
+module.exports = recursiveSearch
+
+// console.log(recursiveSearch([0, 1, 23, 4], 1) === true)
+// console.log(recursiveSearch([3, 2, 1], 4) === false)
+// console.log(recursiveSearch([0, 1, 23, 4], 2) === false)
+// console.log(recursiveSearch([1, 2, 3], 2) === true)
