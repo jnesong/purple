@@ -3,8 +3,8 @@ I: array of numbers, unsorted, target k
 O: all consecutive pairs that add up to k
 C: pairs must be distinct, aka no pairs contain the same two numbers e.g. [3,7] is the same as [7,3]
 E: returns empty array if no pairs add up to k
-Time Complexity:
-Space Complexity:
+Time Complexity: O(n)
+Space Complexity: O(n)
 */
 
 // loop through, if values next to each other equal k then sort and add to map keys, so only unique
@@ -23,5 +23,7 @@ function distinctPairSum( arr, k) {
     return Object.values(map);
 }
 
-console.log(distinctPairSum([0, 1, 1, 2, 0, 1, 1], 2))
-console.log(distinctPairSum([3, 4, 2, 1, 5, 2, 8, 2], 10));
+// console.log(distinctPairSum([0, 1, 1, 2, 0, 1, 1], 2))
+// console.log(distinctPairSum([3, 4, 2, 1, 5, 2, 8, 2], 10));
+
+module.exports = distinctPairSum
