@@ -1,11 +1,11 @@
-//I: array of strings
-//O: shortest string, or first appearing shortest string
-//C: array will have a minimum length of one
-//E: 
-
-
-//Time complexity:
-//Space complexity:
+/* 
+I: array of strings
+O: shortest string
+C:
+E: first appearing shortest string if other strings of same short length
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
 
 function findShortest(arr){
     let shortest = arr[0]

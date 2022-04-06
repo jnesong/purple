@@ -1,9 +1,11 @@
-//I array of strings
-//O index of first unique string, 1-indexing 
-//C strings will be at least one character, English alphabet
-//E
-//Time complexity
-//Space complexity
+/* 
+I: array of strings
+O: index of first unique string, 1-indexing
+C: strings will be at least one character, English alphabet
+E: if no unique strings, return -1
+Time Complexity: O(n)
+Space Complexity: O(n)
+*/
 
 function FirstUnique(arr) {
     let map = {}

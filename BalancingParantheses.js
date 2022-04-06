@@ -1,9 +1,11 @@
-//I: string containing only parentheses
-//O: number of additional parentheses needed for the string to be considered balanced
-//C: input string will have a min length of 1
-//E: only left or only right parentheses, start with closing and ends with opening
-//Time complexity:
-//Space complexity:
+/* 
+I: string containing only parentheses
+O: number of additional parentheses needed for the string to be considered balanced
+C: input string will have a min length of 1
+E: only left or only right parentheses; start with right; ends with left
+Time Complexity: O(n)
+Space Complexity: O(n)
+*/
 
 function balancingParentheses ( string ){
     let arr = string.split("")

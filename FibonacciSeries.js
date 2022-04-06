@@ -1,9 +1,11 @@
-//I: n
-//O: the nth element in the Fibonacci series (every value is the sum of the two values preceding it)
-//C: zero-indexing, sequence starts at 0, followed by 1
-//E: n of 0 or n of 1
-//Time complexity: O(n)
-// Space complexity: O(n)
+/* 
+I: number n
+O: the nth element in the Fibonacci sequence (every value is the sum of the two values preceding it)
+C: 0-indexing, sequence starts at 0, followed by 1
+E: n of 0; n of 1
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
 
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
 
