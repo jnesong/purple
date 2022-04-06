@@ -8,7 +8,7 @@ Space Complexity: O(n)
 */
 
 // loop through, if values next to each other equal k then sort and add to map keys, so only unique
-// return map keys
+// return map values
 
 function distinctPairSum( arr, k) {
     const map = {};
