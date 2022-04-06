@@ -16,11 +16,11 @@ function distinctPairSum( arr, k) {
         let j = i+1;
         if (arr[i]+arr[j] === k) {
             let distinctPair = [arr[i], arr[j]].sort();
-            map[[distinctPair]] = 1;
+            map[distinctPair] = distinctPair;
         };
     };
 
-    return Object.keys(map);
+    return Object.values(map);
 }
 
 console.log(distinctPairSum([0, 1, 1, 2, 0, 1, 1], 2))
