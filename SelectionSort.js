@@ -1,7 +1,11 @@
-//I: array of numbers
-//O: array sorted least ot greatest
-//C: repeatedly find min and put in correct location
-//E: negatives
+/* 
+I: array of numbers
+O: array sorted least to greatest
+C: repeatedly find min and put in correct location
+E: negatives
+Time Complexity: O(n²)
+Space Complexity: O(1)
+*/
 
 function selectionSort ( arr ){
     for ( let i=0; i<arr.length; i++){

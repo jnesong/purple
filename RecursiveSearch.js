@@ -1,9 +1,11 @@
-//I: array of values, target
-//O: true, if target is in array; false if not
-//C: use recursion
-//E:
-//Time complexity: O(n)
-//Space complexity: O(1)
+/* 
+I: array of values, target
+O: true, if target is in array ; false, if not
+C: use recursion
+E:
+Time Complexity: O(n)
+Space Complexity: O(1)
+*/
 
 function recursiveSearch(array, target) {
     // console.log(array)
