@@ -21,9 +21,5 @@ function selectionSort ( arr ){
     return arr
 }
 
-console.log(selectionSort([10, -1, 4, 9, 3, 0, -8]) === [-8, -1, 0, 3, 4, 9, 10])
-console.log(selectionSort([10, -1, 4, 9, 3, 0, -8]))
-
-console.log([10])
 
 module.exports = selectionSort;

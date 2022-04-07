@@ -9,7 +9,10 @@ Space Complexity: O(n²)
 //use a prefix tree or double for loop
 function consecutiveSubstrings(str) {
     let all = []
-    if (str.length < 2) {
+    if (str.length === 0){
+        return []
+      }
+    else if (str.length < 2) {
         all.push(str)
     } else {
         let arr = str.split("")
