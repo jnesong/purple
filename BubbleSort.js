@@ -4,7 +4,7 @@ O: sorted array of numbers, ascending
 C: use bubble sort method
 E: if 0 or 1 number, just return input; duplicates in array
 Time Complexity: O(n²)
-Space Complexity: O(n²)
+Space Complexity: O(1)
 */
 
 function bubbleSort(arr) {
