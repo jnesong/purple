@@ -66,6 +66,7 @@ class Stack {
         for (let i=0; i<this.stack.length; i++){
             console.log(this.stack[i])
         }
+        return true
 
     }
 }
@@ -83,9 +84,11 @@ class Stack {
 // // console.log(ss.peek())
 // console.log(ss.count())
 
-const ss = new Stack(3)
+const ss = new Stack()
 ss.push(5)
 ss.push(17)
+ss.push(17)
+ss.push(20)
 console.log(ss.print())
 console.log(ss.search(5))
 console.log(ss.search(10))
