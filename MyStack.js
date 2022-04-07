@@ -53,7 +53,7 @@ class Stack {
     search(target) {
         for (let i=0; i<this.stack.length; i++){
             if(this.stack[i] === target ){
-                return this.stack.length-i
+                return this.stack.length-i-1
             }
         }
         return -1
@@ -62,6 +62,10 @@ class Stack {
 
     // print contents of stack: do not return the stack itself!
     print() {
+
+        for (let i=0; i<this.stack.length; i++){
+            console.log(this.stack[i])
+        }
 
     }
 }
@@ -78,4 +82,12 @@ class Stack {
 // console.log(ss.isFull())
 // // console.log(ss.peek())
 // console.log(ss.count())
+
+const ss = new Stack(3)
+ss.push(5)
+ss.push(17)
+console.log(ss.print())
+console.log(ss.search(5))
+console.log(ss.search(10))
+
 
