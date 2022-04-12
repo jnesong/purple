@@ -3,8 +3,8 @@ I: string
 O: true or false
 C: string lenth is at least 1 character, only consists of '() [] {}' type characters
 E: starts with right side, ends with left side, other type in between
-Time Complexity: 
-Space Complexity: 
+Time Complexity: O(n)
+Space Complexity: O(n)
 */
 
 // will use stacks
@@ -26,12 +26,13 @@ function validParentheses(s) {
         else if (s[i]==="}" && stack.pop()!=="{"){
             return false
         }
+        console.log(stack)
     }
     return stack.length===0
 }
 
-console.log(validParentheses("[]{}()")===true)
+// console.log(validParentheses("[]{}()")===true)
 console.log(validParentheses("[[{()}]]{}")===true)
-console.log(validParentheses("[]}()")===false)
+// console.log(validParentheses("[]}()")===false)
 
 
