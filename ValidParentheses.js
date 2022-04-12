@@ -17,9 +17,21 @@ function validParentheses(s) {
         else if (stack.length===0){
             return false
         }
+        else if (s[i]===")" && stack.pop()!=="("){
+            return false
+        }
+        else if (s[i]==="]" && stack.pop()!=="["){
+            return false
+        }
+        else if (s[i]==="}" && stack.pop()!=="{"){
+            return false
+        }
     }
     return stack.length===0
 }
 
 console.log(validParentheses("[]{}()")===true)
+console.log(validParentheses("[[{()}]]{}")===true)
+console.log(validParentheses("[]}()")===false)
+
 
