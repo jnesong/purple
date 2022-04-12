@@ -4,7 +4,7 @@ O: two indices, of values that add up to target
 C: only one solution
 E: negative integers, so cannot rule out any numbers larger than target
 Time Complexity: O(n)
-Space Complexity: O(1)
+Space Complexity: O(n)
 */
 
 // returning indices means you cannot sort it to do a binary search

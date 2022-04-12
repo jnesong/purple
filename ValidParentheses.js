@@ -13,9 +13,9 @@ function validParentheses(s) {
     for (let i=0; i<s.length; i++){
         if (s[i]==="(" || s[i]==="[" || s[i]==="{"){
             stack.push(s[i])
-        }
-        else if (stack.length===0){
-            return false
+        // }
+        // else if (stack.length===0){
+        //     return false
         }
         else if (s[i]===")" && stack.pop()!=="("){
             return false
@@ -33,6 +33,7 @@ function validParentheses(s) {
 
 // console.log(validParentheses("[]{}()")===true)
 console.log(validParentheses("[[{()}]]{}")===true)
-// console.log(validParentheses("[]}()")===false)
+console.log(validParentheses("({[}])")===false)
+console.log(validParentheses("[]}()")===false)
 
 
