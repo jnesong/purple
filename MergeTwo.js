@@ -12,45 +12,46 @@ function ListNode(value = 0, nextIn = null) {
     this.next = nextIn
 }
 
-const pretendLinkedA = [
-    { value: 1, next: 2 },
-    { value: 2, next: 4 },
-    { value: 4, next: 9 },
-    { value: 9, next: null }
-]
 
-const pretendLinkedB = [
-    { value: 1, next: 3 },
-    { value: 3, next: 7 },
-    { value: 7, next: 12 },
-    { value: 12, next: null }
-]
+function mergeTwo(listAHead, listBHead) {
 
-function mergeTwo(listA, listB) {
+    let currentA = listAHead
+    let currentB = listBHead
 
-    if (listA.length !== 0 && listB.length !== 0) {
-
-        let currentA = listA[0]
-        let currentB = listB[0]
-
+    if (currentA.next && currentB.next) {
         if (currentA <= currentB) {
-            let x = listA.shift()
-            const result = new ListNode(x, mergeTwo(listA, listB))
-            console.log(result)
+            let temp = currentA
+            currentA = currentA.next
+            temp.next = currentB
         } else {
-            let y = listB.shift()
-            const result = new ListNode(y, mergeTwo(listA, listB))
-            console.log(result)
+            let temp = currentB
+            currentB = currentB.next
+            temp.next = currentA
         }
 
-        if (currentA <= currentB) {
-            return currentA
-        } else { return currentB }
-
+        mergeTwo(currentA, currentB)
     }
-   
-    return null
 
 }
 
-console.log(mergeTwo(pretendLinkedA, pretendLinkedB))
+function mergeTwo(list1, list2) {
+
+    let currentA = list1
+    let currentB = list2
+
+    if (currentA.next && currentB.next) {
+        if (currentA.val <= currentB.val) {
+            let temp = currentA
+            currentA = currentA.next
+            temp.next = currentB
+        } else {
+            let temp = currentB
+            currentB = currentB.next
+            temp.next = currentA
+        }
+
+        mergeTwo(currentA, currentB)
+    }
+
+}
+
