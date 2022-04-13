@@ -16,6 +16,8 @@ function maxProfit(prices) {
         for (i = 1; i < prices.length; i++) {
             if (prices[i] < buy) {
                 buy = prices[i]
+                buyI = i
+                sell = prices[i]
             }
             if (prices[i] > sell) {
                 sell = prices[i]
@@ -28,3 +30,4 @@ function maxProfit(prices) {
 }
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4]))
+console.log(maxProfit([7, 6, 4, 3]))
