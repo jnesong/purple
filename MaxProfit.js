@@ -4,8 +4,8 @@ O: max profit/difference between two prices
 C: must buy before sell, so the smaller price must have an earlier/smaller index
 there will be at least one price and one day, prices are greater than or equal to 0
 E: if max profit is 0, return 0
-Time Complexity: 
-Space Complexity: 
+Time Complexity: O(n)
+Space Complexity: O(1)
 */
 
 function maxProfit(prices) {
