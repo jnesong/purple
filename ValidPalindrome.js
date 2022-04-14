@@ -8,14 +8,19 @@ Space Complexity:
 */
 
 function isPalindrome ( s ) {
-    let reverse = []
-    let string = [...s]
-    for (let i=0; i<s.length; i++){
-        x = string.pop()
-        reverse.push(x)
-    }
-    console.log(reverse)
-    return reverse.join("")===s
+    for (let [i, j]=[0, s.length-1]; i<j;i++,j--){
+        if(/\W|_/.test(s[i])){
+            i++
+        } else if (/\W|_/.test(s[j])){
+            j--
+        } else {
+            console.log(s[i])
+            console.log(s[j])
+            if (s[i].toLowerCase()!==s[j].toLowerCase()){
+                return false
+            }
+        }
+    } return true
 }
 
-console.log(isPalindrome("pizza"))
+console.log(isPalindrome("RA_ce car"))
