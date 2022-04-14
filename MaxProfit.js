@@ -17,11 +17,12 @@ function maxProfit(prices) {
             buy = prices[i]
         }
         profit = Math.max(prices[i]-buy, profit)
+        console.log("day =", i, "buying price =", buy)
     }
     return profit
 
 }
 
-console.log(maxProfit([7, 1, 5, 3, 6, 4]))
-console.log(maxProfit([7, 6, 4, 3]))
-console.log(maxProfit([2, 4, 1]))
+// console.log(maxProfit([7, 1, 5, 3, 6, 4]))
+// console.log(maxProfit([7, 6, 4, 3]))
+console.log(maxProfit([4, 9, 2]))
