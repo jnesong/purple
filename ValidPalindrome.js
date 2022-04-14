@@ -8,17 +8,17 @@ Space Complexity:
 */
 
 function isPalindrome ( s ) {
-    for (let [i, j]=[0, s.length-1]; i<j;i++,j--){
+    for (let [i, j]=[0, s.length-1]; i<j;){
         if(/\W|_/.test(s[i])){
             i++
         } else if (/\W|_/.test(s[j])){
             j--
         } else {
-            console.log(s[i])
-            console.log(s[j])
             if (s[i].toLowerCase()!==s[j].toLowerCase()){
                 return false
             }
+            i++
+            j--
         }
     } return true
 }
