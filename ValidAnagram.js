@@ -40,9 +40,11 @@ function isAnagram( s, t ) {
         f2[i] = 0;
     }
     for (let i = 0; i < s.length; i++) {
+        console.log(s.charCodeAt(i))
         f1[s.charCodeAt(i) - 97]++;
     }
     for (let i = 0; i < t.length; i++) {
+        console.log(s.charCodeAt(i))
         f2[t.charCodeAt(i) - 97]++;
     }
     for (let i = 0; i < 26; i++) {
@@ -53,6 +55,14 @@ function isAnagram( s, t ) {
     return true;
 }
 
-console.log(isAnagram("a", "a")===true)
-console.log(isAnagram("anagram", "nagaralm")===false)
-console.log(isAnagram("anagram", "nagabrm")===false)
+// console.log(isAnagram("a", "a")===true)
+// console.log(isAnagram("anagram", "nagaralm")===false)
+// console.log(isAnagram("anagram", "nagabrm")===false)
+// console.log(isAnagram("anagram", "margaan")===true)
+console.log(isAnagram("pizza", "zzaip"))
+
+/*
+97 is the numeric value of the character 'a', 
+so if you subtract 97 from a character between 'a' and 'z', 
+you are mapping that character to an index of your array between 0 and 25.
+*/
