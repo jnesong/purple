@@ -10,24 +10,18 @@ Space Complexity: O(1)
 
 function maxProfit(prices) {
     let buy = prices[0]
-    let sell = prices[1]
+    let profit = 0
 
-    if (sell) {
-        for (i = 1; i < prices.length; i++) {
-            if (prices[i] < buy) {
-                buy = prices[i]
-                buyI = i
-                sell = prices[i]
-            }
-            if (prices[i] > sell) {
-                sell = prices[i]
-            }
+    for (let i=1; i<prices.length; i++){
+        if (prices[i] < buy){
+            buy = prices[i]
         }
-        return sell - buy
+        profit = Math.max(prices[i]-buy, profit)
     }
-    return 0
+    return profit
 
 }
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4]))
 console.log(maxProfit([7, 6, 4, 3]))
+console.log(maxProfit([2, 4, 1]))
