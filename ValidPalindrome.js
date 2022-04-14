@@ -9,14 +9,10 @@ Space Complexity: O(1)
 
 function isPalindrome(s) {
     for (let [i, j] = [0, s.length - 1]; i < j;) {
-        if (/\W|_/.test(s[i])) {
-            i++
-        } else if (/\W|_/.test(s[j])) {
-            j--
-        } else {
-            if (s[i].toLowerCase() !== s[j].toLowerCase()) {
-                return false
-            }
+        if (/\W|_/.test(s[i])) { i++ }
+        else if (/\W|_/.test(s[j])) { j-- }
+        else {
+            if (s[i].toLowerCase() !== s[j].toLowerCase()) { return false }
             i++
             j--
         }
