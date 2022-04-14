@@ -3,8 +3,8 @@ I: root of binary tree
 O: inverted root
 C: tree has 0 to 100 nodes, node value is between -100 and 100
 E: no nodes
-Time Complexity: 
-Space Complexity: 
+Time Complexity: O(n)
+Space Complexity: O(1)
 */
 
 
