@@ -7,61 +7,85 @@ Time Complexity: O(n)
 Space Complexity: O(n)
 */
 
-// function add(x) {
-//     console.log(x + 1)
-//     console.log(1 + x)
-//     console.log(x)
+
+// function floodFill(image, sr, sc, newColor) {
+
+//     let x = image[sr][sc]
+
+//     //edge case 
+
+//     if (newColor === x){
+//         return image
+//     }
+
+
+//     if (x!==undefined) {
+//         // checking and changing pixel above
+//         if (image[sr - 1]!==undefined && image[sr - 1][sc] === x) {
+//             image[sr][sc] = newColor
+//             floodFill(image, sr - 1, sc, newColor)
+//         }
+
+//         //checking and changing pixel to the left
+//         if (image[sr][sc-1]!==undefined && image[sr][sc - 1] === x) {
+//             image[sr][sc] = newColor
+//             floodFill(image, sr, sc - 1, newColor)
+//         }
+
+//         // pixel below
+
+//         if (image[sr+1]!==undefined && image[sr + 1][sc] === x) {
+//             image[sr][sc] = newColor
+//             floodFill(image, sr + 1, sc, newColor)
+//         }
+
+//         // pixel to the right
+
+//         if (image[sr][sc+1]!==undefined && image[sr][sc + 1] === x) {
+//             image[sr][sc] = newColor
+//             floodFill(image, sr, sc + 1, newColor)
+//         }
+
+//         image[sr][sc] = newColor
+
+//     }
+
+//     return image
+
 // }
-// console.log(add(5))
 
 function floodFill(image, sr, sc, newColor) {
 
-    let x = image[sr][sc]
-
-    //edge case 
-
-    if (newColor === x){
-        return image
-    }
-
+    let x = image[sr][sc];
+    if (newColor === x){return image};
 
     if (x!==undefined) {
-        // checking and changing pixel above
-        if (image[sr - 1]!==undefined && image[sr - 1][sc] === x) {
-            image[sr][sc] = newColor
-            floodFill(image, sr - 1, sc, newColor)
-        }
-
-        //checking and changing pixel to the left
-        if (image[sr][sc-1]!==undefined && image[sr][sc - 1] === x) {
-            image[sr][sc] = newColor
-            floodFill(image, sr, sc - 1, newColor)
-        }
-
-        // pixel below
-
-        if (image[sr+1]!==undefined && image[sr + 1][sc] === x) {
-            image[sr][sc] = newColor
-            floodFill(image, sr + 1, sc, newColor)
-        }
-
-        // pixel to the right
-
-        if (image[sr][sc+1]!==undefined && image[sr][sc + 1] === x) {
-            image[sr][sc] = newColor
-            floodFill(image, sr, sc + 1, newColor)
-        }
-
-        image[sr][sc] = newColor
-
+        refactor(sr-1, sc);
+        refactor(sr, sc-1);
+        refactor(sr+1, sc);
+        refactor(sr, sc+1);
+        image[sr][sc] = newColor;
     }
 
-    return image
+    function refactor (a, b){
+        if (image[a]!==undefined && image[a][b]!==undefined && image[a][b]===x){
+            image[sr][sc] = newColor;
+            floodFill(image, a, b, newColor);
+        };
+    };
 
-}
+    return image;
+};
 
-// console.log(floodFill([[9, 9, 9], [9, 9, 7], [9, 7, 9]], 1, 1, 8))
-console.log(floodFill([[0,0,0],[0,1,1]], 1, 1, 1))
+// function refactor (a, b){
+//     if (image[a][b]!==undefined && image[a][b]===x){
+//         image[sr][sc] = newColor;
+//         floodFill(image, a, b, newColor);
+//     };
+// };
+
+console.log(floodFill([[9, 9, 9], [9, 9, 7], [9, 7, 9]], 1, 1, 8))
+// console.log(floodFill([[0,0,0],[0,1,1]], 1, 1, 1))
 
 // function floodFill (image, sr, sc, newColor) {
 //     const dfs = (x, y, base) => {
