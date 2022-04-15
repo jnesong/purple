@@ -60,14 +60,14 @@ function floodFill(image, sr, sc, newColor) {
     if (newColor === x){return image};
 
     if (x!==undefined) {
-        refactor(sr-1, sc);
-        refactor(sr, sc-1);
-        refactor(sr+1, sc);
-        refactor(sr, sc+1);
+        check(sr-1, sc);
+        check(sr, sc-1);
+        check(sr+1, sc);
+        check(sr, sc+1);
         image[sr][sc] = newColor;
     }
 
-    function refactor (a, b){
+    function check (a, b){
         if (image[a]!==undefined && image[a][b]!==undefined && image[a][b]===x){
             image[sr][sc] = newColor;
             floodFill(image, a, b, newColor);
@@ -77,7 +77,7 @@ function floodFill(image, sr, sc, newColor) {
     return image;
 };
 
-// function refactor (a, b){
+// function check (a, b){
 //     if (image[a][b]!==undefined && image[a][b]===x){
 //         image[sr][sc] = newColor;
 //         floodFill(image, a, b, newColor);
