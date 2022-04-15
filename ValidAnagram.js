@@ -57,7 +57,7 @@ function isAnagram( s, t ) {
 // console.log(isAnagram("anagram", "nagaralm")===false)
 // console.log(isAnagram("anagram", "nagabrm")===false)
 // console.log(isAnagram("anagram", "margaan")===true)
-console.log(isAnagram("pizza", "zzaip"))
+console.log(isAnagram("pizza", "pizza"))
 
 /*
 97 is the numeric value of the character 'a', 

@@ -3,8 +3,8 @@ I: 3 integers and a matrix
 O: modified image
 C: 
 E: if new color is the same as current color, at sides of matrix
-Time Complexity: 
-Space Complexity: 
+Time Complexity: O(n)
+Space Complexity: O(1)
 */
 
 // function add(x) {
