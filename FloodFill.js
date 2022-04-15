@@ -2,7 +2,7 @@
 I: 3 integers and a matrix
 O: modified image
 C: 
-E: 
+E: if new color is the same as current color, at sides of matrix
 Time Complexity: 
 Space Complexity: 
 */
@@ -16,11 +16,16 @@ Space Complexity:
 
 function floodFill(image, sr, sc, newColor) {
 
-
     let x = image[sr][sc]
 
+    //edge case 
 
-    if (x) {
+    if (newColor === x){
+        return image
+    }
+
+
+    if (x!==undefined) {
         // checking and changing pixel above
         if (image[sr - 1]!==undefined && image[sr - 1][sc] === x) {
             image[sr][sc] = newColor
@@ -33,11 +38,9 @@ function floodFill(image, sr, sc, newColor) {
             floodFill(image, sr, sc - 1, newColor)
         }
 
-        // pixel to below
+        // pixel below
 
         if (image[sr+1]!==undefined && image[sr + 1][sc] === x) {
-            console.log(image[sr][sc])
-            console.log(image[sr+1][sc])
             image[sr][sc] = newColor
             floodFill(image, sr + 1, sc, newColor)
         }
@@ -57,5 +60,5 @@ function floodFill(image, sr, sc, newColor) {
 
 }
 
-console.log(floodFill([[9, 9, 9], [9, 9, 7], [9, 7, 9]], 1, 1, 8))
-
+// console.log(floodFill([[9, 9, 9], [9, 9, 7], [9, 7, 9]], 1, 1, 8))
+console.log(floodFill([[0,0,0],[0,1,1]], 1, 1, 1))
