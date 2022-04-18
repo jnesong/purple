@@ -4,8 +4,8 @@ O: largest sum
 C: must be contiguous subarray, at least one number, numbers between -10000 and 10000
 array is between one character and 10000 character longs. 
 E: 
-Time Complexity: 
-Space Complexity: 
+Time Complexity: O(n)
+Space Complexity: O(n)
 */
 
 function maxSubArray(nums) {
