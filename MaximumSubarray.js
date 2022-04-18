@@ -10,19 +10,12 @@ Space Complexity:
 
 function maxSubArray(nums) {
     let max = nums[0]
-    let leftestIndex = 0
+    let current = 0
 
-    for (let i = 1; i < nums.length; i++) {
-        let addRight = max+nums[i]
-        let subtractLeft = max-nums[leftestIndex]
-        if (addRight > max){
-            max = addRight
-        } 
-        if (subtractLeft > max){
-            max = subtractLeft
-            leftestIndex++
-        }
-        console.log(max)
+    for (let i = 0; i < nums.length; i++) {
+      if (current<0){ current = 0}
+      current += nums[i]
+      max = Math.max(max, current)
     }
     return max
 
