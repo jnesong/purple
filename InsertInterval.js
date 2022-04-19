@@ -8,11 +8,15 @@ Space Complexity:
 */
 
 function insert(intervals, newInterval) {
+    if (intervals.length===0){return [newInterval]}
     let newArray = []
     for (let i = 0; i < intervals.length; i++) {
         if (intervals[i][0] <= newInterval[0]) {
             newArray.push(intervals[i])
-        }
+            if (intervals[i][1]>newInterval[0]){
+                newArray[newArray.length - 1][1] = newInterval[1]
+            }
+        } 
         if (intervals[i][1] >= newInterval[1]) {
             if (intervals[i][0] <= newInterval[1]) {
                 newArray[newArray.length - 1][1] = intervals[i][1]
@@ -24,4 +28,7 @@ function insert(intervals, newInterval) {
     return newArray
 }
 
-console.log(insert([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4, 8]))
+console.log(insert([[1,2], [3,5], [6,7], [8,10], [12,16]], [4,8]))
+console.log(insert([[1,3],[6,9]], [2,5]))
+console.log(insert([], [2,5]))
+console.log(insert([[1,5]], [2,3]))
