@@ -2,40 +2,10 @@
 I: array of intervals (two 0+ number arrays) and a new interval
 O: array of intervals
 C: intervals array contains 0 to 10000 intervals, sorted ascending, 
-E: 
-Time Complexity: 
-Space Complexity: 
+E: empty intervals, new interval not within range
+Time Complexity: O(n)
+Space Complexity: O(n)
 */
-
-// function insert(intervals, newInterval) {
-//     if (intervals.length === 0) { return [newInterval] }
-//     let newArray = []
-//     for (let i = 0; i < intervals.length; i++) {
-//         if (intervals[i][1] < newInterval[0]) {
-//             newArray.push(intervals[i])
-//             if (!intervals[i + 1] || intervals[i + 1][0] > newInterval[1]) {
-//                 newArray.push(newInterval)
-//             }
-
-//         } else if (intervals[i][0] < newInterval[0]) {
-//             newArray.push(intervals[i])
-//             newArray[newArray.length - 1][0] = Math.min(intervals[i][0], newInterval[0])
-//         }
-//         else if (intervals[i][0] <= newInterval[1]) {
-//             newArray.push(intervals[i])
-//             newArray[newArray.length - 1][0] = Math.min(intervals[i][0], newInterval[0])
-//             if (intervals[i][1] > newInterval[1]) {
-//                 return newArray
-//             }
-//         }
-//         else if (intervals[i][0] <= newInterval[1]) {
-//             let x = Math.max(intervals[i][1], newInterval[1])
-//             console.log(x)
-//             console.log(newArray[newArray.length - 1])
-//         }
-//     }
-//     return newArray
-// }
 
 function insert(intervals, newInterval) {
     if (intervals.length === 0) { return [newInterval] }
