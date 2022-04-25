@@ -9,14 +9,21 @@ Space Complexity:
 map p's parents, and check if q's is in the map
 */
 
-function lowestCommonAncestor (root, p, q) {
+function lowestCommonAncestor(root, p, q) {
+    let smaller = Math.min(p, q)
+    let larger = Math.min(p, q)
 
-    let map = {}
-
-    let smaller = Math.min(p,q)
-    console.log(smaller)
-
+    let parent = root[0]
     
+    for (let i=1; root[i]===larger; i++) {
+        if (root[i]>=smaller && root[i]<=larger)
+        parent = root[i]
+        i++
+        console.log(root[i])
+    }
+
+    return parent
 }
 
-console.log(lowestCommonAncestor([6,2,8,0,4,7,9,null,null,3,5], 2, 4))
+console.log(lowestCommonAncestor([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5], 2, 4))
+// console.log(lowestCommonAncestor([2,1], 2, 1))
