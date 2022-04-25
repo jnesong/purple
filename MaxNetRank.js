@@ -23,25 +23,31 @@ function maxNetRank (n, roads) {
         } else { 
             map[roads[r][1]]=1
         }
+    }
+
+    console.log(map)
         
         let max = map[0]
         let maxIndex = 0
-        let secondMost = map[1]
+        let secondMax = map[1]
         let secondMaxIndex= 1
-        
         for (let i=0;i<n;i++){
+
             if (map[i]>max){
-                secondMost = max
+                secondMax = max
                 secondMaxIndex = maxIndex
                 max = map[i]
                 maxIndex = i
             }
+            
         }
-        
-        if (map[[maxIndex,secondMostIndex] || map[[secondMostIndex, maxIndex]]){
-                return max+secondMost-1
-            }
-        else { return max+secondMost}   
+    
+
+        if (map[[maxIndex, secondMaxIndex]] || map[[secondMaxIndex, maxIndex]]){
+            return max+secondMax-1
+        } else { return max+secondMax}   
 
     
 };
+
+console.log(maxNetRank(5, [[0,1],[0,3],[1,2],[1,3],[2,3],[2,4]]))
