@@ -17,28 +17,28 @@ cannot be more than 1 node difference
 */
 
 
-function isBalanced ( root ) {
+function isBalanced(root) {
 
+    if (!root) return true;
     let count = 0
-    
-    if (root.right) { add(root) }
-    if (root.left) { minus (root)}
 
-    function add ( root ) {
-        count++
-        add(root.right)
-    }
-    
-    function minus (root) {
+    leftMinus(root);
+    rightAdd(root);
+
+    function leftMinus(root){
         count--
-        minus (root.left)
+        const left = leftMinus(root.left);
     }
-    
-    
+    function rightAdd(root){
+        count++
+        const right = rightAdd(root.right);
+    }
+
+
     return count
 }
 
 
 
 
-console.log(isBalanced([3,9,20,null,null,15,7]))
+console.log(isBalanced([3, 9, 20, null, null, 15, 7]))
