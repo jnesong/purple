@@ -6,24 +6,21 @@ E: node is the lowest common ancestor
 Time Complexity: 
 Space Complexity: 
 
-map p's parents, and check if q's is in the map
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
 */
 
 function lowestCommonAncestor(root, p, q) {
-    let smaller = Math.min(p, q)
-    let larger = Math.min(p, q)
+    if (p.val < root.val && q.val < root.val) return lowestCommonAncestor(root.left, p, q);
+    if (p.val > root.val && q.val > root.val) return lowestCommonAncestor(root.right, p, q);
 
-    let parent = root[0]
-    
-    for (let i=1; root[i]===larger; i++) {
-        if (root[i]>=smaller && root[i]<=larger)
-        parent = root[i]
-        i++
-        console.log(root[i])
-    }
+    return root
 
-    return parent
 }
 
-console.log(lowestCommonAncestor([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5], 2, 4))
-// console.log(lowestCommonAncestor([2,1], 2, 1))
+
+// console.log(lowestCommonAncestor([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5], 2, 4))
+// // console.log(lowestCommonAncestor([6, 2, 8, 0, 4, 7, 9, null, null, 3, 5], 2, 8))
+// // console.log(lowestCommonAncestor([2,1], 2, 1))
