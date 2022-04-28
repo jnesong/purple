@@ -3,8 +3,8 @@ I: binary search tree root, two given nodes
 O: parent? LCA “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”
 C: number of nodes 2-100,000, node values are unique, p != q, p & q are in the BST
 E: node is the lowest common ancestor
-Time Complexity: 
-Space Complexity: 
+Time Complexity:  O (log n)
+Space Complexity: O(1)
 
  * function TreeNode(val) {
  *     this.val = val;
