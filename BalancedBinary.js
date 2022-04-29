@@ -26,17 +26,20 @@ function isBalanced(root) {
     rightAdd(root);
 
     function leftMinus(root){
+        console.log(root, count)
         if (!root) {return console.log("end")}
         count--
         leftMinus(root.left);
     }
     function rightAdd(root){
+        console.log(root, count)
         if (!root) {return console.log("end")}
         count++
         rightAdd(root.right);
     }
     
-    if (count>-2 && count<2) {
+    
+    if (count>=-2 && count<=2) {
         return true
     } else {
         return false
