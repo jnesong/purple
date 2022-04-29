@@ -38,10 +38,12 @@ function mergeSort(arr) {
 }
 
 
-console.log(mergeSort([2, 4, 6, 9, 1, 3, 8]))
+console.log(mergeSort([2, 4, 6, 9, 1, 3, 2, 8]))
 console.log(mergeSort([2]))
 console.log(mergeSort([0]))
 console.log(mergeSort([4, -12, 9, -3, 1, 0, 22, 47]))
+console.log(mergeSort([4, 5, 7]))
+
 
 
 
