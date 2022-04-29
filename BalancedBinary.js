@@ -26,19 +26,22 @@ function isBalanced(root) {
     rightAdd(root);
 
     function leftMinus(root){
+        if (!root) {return console.log("end")}
         count--
-        const left = leftMinus(root.left);
+        leftMinus(root.left);
     }
     function rightAdd(root){
+        if (!root) {return console.log("end")}
         count++
-        const right = rightAdd(root.right);
+        rightAdd(root.right);
     }
-
-
-    return count
+    
+    if (count>-2 && count<2) {
+        return true
+    } else {
+        return false
+    }
 }
 
-
-
-
-console.log(isBalanced([3, 9, 20, null, null, 15, 7]))
+console.log(isBalanced([1,2,3,4,5,6,null,8]))
+// console.log(isBalanced([3, 9, 20, null, null, 15, 7]))
