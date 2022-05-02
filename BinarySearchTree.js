@@ -38,5 +38,18 @@ class Node {
     return root
   
   }
+  
+  // list = [3, 5, 6, 9, 10, 20]
+  function threeToTwenty() {
+    let a = new Node(3, null, null)
+    let b = new Node(6, null, null)
+    let c = new Node(5, a, b)
+    let f = new Node(20, null, null)
+    let e = new Node(10, null, f)
+    let root = new Node(9, c, e)
+    return root
+  
+  }
 
   console.log(negativeToPositive())
+  console.log(threeToTwenty())
