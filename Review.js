@@ -132,8 +132,9 @@ const recursiveSearch = (arr, target) => {
     if (arr[arr.length-1]===target){
         return true
     } else {
-        arr.pop()
-        return recursiveSearch(arr, target)
+        // arr.pop()
+        let newArr = arr.slice(0,arr.length-1)
+        return recursiveSearch(newArr, target)
     }
 }
 
@@ -146,8 +147,9 @@ the recursion will end when the array has no elements left to check/pop off thus
  */
 
 
-// console.log(recursiveSearch([0, 1, 23, 4], 1) === true)
-// console.log(recursiveSearch([3, 2, 1], 4) === false)
-// console.log(recursiveSearch([0, 1, 23, 4], 2) === false)
-// console.log(recursiveSearch([1, 2, 3], 2) === true)
-// console.log(recursiveSearch([], 2) === false)
+console.log(recursiveSearch([0, 1, 23, 4], 1) === true)
+console.log(recursiveSearch([3, 2, 1], 4) === false)
+console.log(recursiveSearch([0, 1, 23, 4], 2) === false)
+console.log(recursiveSearch([1, 2, 3], 2) === true)
+console.log(recursiveSearch([], 2) === false)
+
