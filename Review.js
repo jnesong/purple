@@ -127,4 +127,27 @@ but return the current element as the shortest if it is false
 
 // console.log(useReduce([4, 5, 10]))
 
+const recursiveSearch = (arr, target) => {
+    if (arr.length === 0) { return false}
+    if (arr[arr.length-1]===target){
+        return true
+    } else {
+        arr.pop()
+        return recursiveSearch(arr, target)
+    }
+}
 
+/* 
+recursiveSearch() takes in an array and a target element and returns true if the target is an element in the array and false if not
+first catch the edge case/end the recursion if the array has no elements, in which case it is impossible for the target to be in the array so return false
+then check if the last element in the array is the target, if it is, return true
+if it is not, remove the last element and call the recursion on the new array (without the last element) and the same target
+the recursion will end when the array has no elements left to check/pop off thus if it reaches that point return false because the target was not found by the end
+ */
+
+
+// console.log(recursiveSearch([0, 1, 23, 4], 1) === true)
+// console.log(recursiveSearch([3, 2, 1], 4) === false)
+// console.log(recursiveSearch([0, 1, 23, 4], 2) === false)
+// console.log(recursiveSearch([1, 2, 3], 2) === true)
+// console.log(recursiveSearch([], 2) === false)
