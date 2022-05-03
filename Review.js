@@ -38,7 +38,7 @@ if there are no dupes, the for loop will end and -1 will be returned to indicate
 // console.log(findFirstDuplicate([4,6,9,1,3,6]))
 // console.log(findFirstDuplicate([]))
 
-const fibonacci = (num) => {
+const fibonacci = ( num ) => {
     let myFibonacci = [0, 1]
     for (let i=2; i<num+1; i++) {
         let x = myFibonacci.length-1
@@ -59,9 +59,36 @@ we construct one element at a time by pushing the sum of the last two elements i
 finally, we return the last element in the array which will be the position num
 because javascript arrays start at index 0, this would be the array.length-1
 I like this method because it clearly/simply also works for edge cases where the input is 0 or 1
+this can be refactored to have no variables w, x, y, z also
 */
 
 // console.log(fibonacci(10))
 // console.log(fibonacci(0))
 
+
+const selectionSort = ( arr ) => {
+    for (let i=0; i<arr.length; i++){
+        for (let j=i+1; j<arr.length; j++){
+            if (arr[j]<arr[i]){
+                let temp = arr[i]
+                arr[i] = arr[j]
+                arr[j] = temp
+                console.log(arr)
+            }
+        }
+    }
+    return arr
+}
+
+/*
+selectionSort() is an inefficient sorting algo that uses two nested for loops, so O(n^2) time complexity to compare 
+it checks whether each element after the i element is smaller than the i element and if so, swaps it
+so on the first nested loop, 2 is swapped with 4 for index 0, only to be swapped with -3 for index 0, then finally with -4 for index 0
+since nothing after -4 is smaller than -4, the outer loop is incremented to index 1, which is now 4
+and the same process repeats except for index 1 not 0 
+and so on
+after both loops are complete, the sorted array is returned
+*/
+
+// console.log(selectionSort([4, 2, -3, 0, 5, -4]))
 
