@@ -8,6 +8,7 @@
 7. balancingParentheses() takes a string of only () {} or [] characters and returns whether it each opening is appropriately closed
 8. isUnique() takes in an array or string and returns true if each element or character is unique, returns false if nots
 9. oneAway() takes in two strings and returns true if the strings are only one character different, and false if more than one character different
+10. twoSum() takes in an array of numbers and a target sum and returns the INDEXES of the two numbers that sum up to the target, or false if none
 
 
 note to self: don't forget semicolons please

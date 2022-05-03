@@ -252,3 +252,34 @@ if the loop completes, then one or 0 differences have been found, return true.
 // console.log(oneAway("hi", "ho") === true)
 // console.log(oneAway("hi", "hoo") === false)
 // console.log(oneAway("hi", "hi") === true)
+
+const twoSum = ( arr, target ) => {
+    const map = {}
+    for (let i=0; i<arr.length; i++) {
+        let t = target-arr[i]
+        if (map[t] >= 0 ) {
+            return [map[t], i]
+        } else {
+            map[arr[i]] = i
+        }
+    }
+
+    return false
+}
+
+/*
+twoSum() takes in an array of numbers and a target sum and returns the INDEXES of the two numbers that sum up to the target, or false if none
+first declare a map to keep track of previous elements in the array
+then loop forward through the array, one element at a time
+declare a variable to be the desired number to add to the current number to equal the target sum
+see if the map includes this number by checking if the value or map[t] is greater than or equal to 0, 
+the value of the map key for the first array element will be 0 because the value is keeping track of the indexes, 0 is a falsy value so
+the conditional must specifically check greater than or equal to 0, and not just if (map[t])
+if it does exist, then there was a prior element in the array that fit the required number needed to sum up to the target, therefore return the value of that
+element save in the map (map[t]), and the current index (i)
+if not, save the current element as a key in the map with its index as the value, to keep track of the indexes aforementioned needed
+if the loop finishes without finding a twoSum, return false
+ */
+
+console.log(twoSum([2, 12, 7, 19, 22, 8, 4, 3], 9))
+console.log(twoSum([12, 19, 22, 4, -3, 7, 8], 9))
