@@ -92,3 +92,39 @@ after both loops are complete, the sorted array is returned
 
 // console.log(selectionSort([4, 2, -3, 0, 5, -4]))
 
+const findShortestString = ( arr ) => {
+    return arr.reduce((shortest,b) => shortest.length <= b.length ? shortest:b)
+}
+
+const shortestString = ( arr ) => {
+    let shortest = arr[0]
+    for (let i=0; i<arr.length; i++){
+        if (arr[i].length < shortest.length){
+            shortest = arr[i]
+        }
+    }
+    return shortest
+}
+
+/*
+findShortestString() takes in an array of strings
+.reduce() is an iterative method that starts with the first element of the array assigned to the first parameter, shortest
+then it iterates through, comparing via ternary expression,
+where the boolean condition is whether the "shortest" length is shorter than the current element
+the ternary with .reduce() here will return the shortest as the shortest if it is true
+but return the current element as the shortest if it is false
+*/
+
+// console.log(findShortestString(["hi", "bye", "hello", "a"]))
+// console.log(findShortestString(["hi", "bye", "hello"]))
+// console.log(shortestString(["hi", "bye", "hello", "a"]))
+// console.log(shortestString(["hi", "bye", "hello"]))
+
+// const useReduce = (arr) => {
+//     let initial = 0
+//     return arr.reduce((prev, current) => prev + current, initial)
+// }
+
+// console.log(useReduce([4, 5, 10]))
+
+
