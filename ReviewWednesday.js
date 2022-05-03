@@ -7,7 +7,9 @@
 6. recursiveSearch() takes in an array and a target element and calls itself to return true if the target is an element in the array and false if not
 7. balancingParentheses() takes a string of only () {} or [] characters and returns whether it each opening is appropriately closed
 8. isUnique() takes in an array or string and returns true if each element or character is unique, returns false if nots
+9. oneAway() takes in two strings and returns true if the strings are only one character different, and false if more than one character different
 
 
+note to self: don't forget semicolons please
 */
 

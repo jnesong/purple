@@ -191,9 +191,9 @@ if it is not 0, there are some unclosed openings, therefore return false
 // console.log(balancingParentheses("[]}()")===false)
 // console.log(balancingParentheses("")===true)
 
-const isUnique = ( arr ) => {
+const isUnique = (arr) => {
     let map = {}
-    for (let i=0; i<arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
         if (map[arr[i]]) { return false }
         else {
             map[arr[i]] = 1
@@ -212,6 +212,43 @@ if the element does not, save the element as a key for the map to be checked aga
 if the loop finishes and no repeats are found, return true, every element in the array is unique
 */
 
-console.log(isUnique([5, 9, 10, 3, 44, 55, 9]) === false)
-console.log(isUnique([5, 9, 10, 3, 44, 55]) === true)
-console.log(isUnique([]) === true)
+// console.log(isUnique([5, 9, 10, 3, 44, 55, 9]) === false)
+// console.log(isUnique([5, 9, 10, 3, 44, 55]) === true)
+// console.log(isUnique([]) === true)
+
+const oneAway = (s1, s2) => {
+    let edits = 1
+    let maxLength = Math.max(s1.length, s2.length)
+    let diff = Math.abs(s1.length - s2.length)
+    if (diff > edits) { return false }
+
+    for (i = 0, j = 0; i < maxLength || j < maxLength; i++, j++) {
+        if (s1[i] !== s2[j]) {
+            edits--
+            if (edits < 0) { return false }
+            else if (s1[i] === s2[j + 1]) { j++ }
+            else if (s1[i + 1] === s2[j]) { i++ }
+        }
+    }
+    return true
+}
+/*
+oneAway() takes in two strings and returns true if the strings are only one character different, and false if more than one character different
+first declare the number of character differences allowed as edits
+then determine the longest length, to know how much to iterate
+also determined the difference in length between the two strings because
+if the difference in length is greater than the max edits allowed, return false - the strings are more than one character different if they have +1 difference in length
+then loop forward through both strings, with i representing s1's index and j representing s2's index
+if the characters are not the same, subtract one from edit, as one difference is allowed
+check whether edits has already been subtracted from (less than 0), return false if so
+otherwise, check to see if the current s1 character matches the next s2 character and vice versa
+if so, match up the strings again
+this cannot occur more than once, otherwise the strings would be more +1 difference in length, which has already been ruled out
+if the loop completes, then one or 0 differences have been found, return true.
+ */
+
+// console.log(oneAway("hi", "ihii") === false)
+// console.log(oneAway("hi", "") === false)
+// console.log(oneAway("hi", "ho") === true)
+// console.log(oneAway("hi", "hoo") === false)
+// console.log(oneAway("hi", "hi") === true)
