@@ -415,3 +415,44 @@ then change the right's to temp, the previous left
 call invertBinaryTree on itself to complete switching the rest of the roots/nodes
 return the root of the inverted tree, which will technically have the same value as the original root, but its branches have been inverted via recursion
  */
+
+const validAnagram = ( s, t ) => {
+    if (s===t) return true 
+    if (s.length !== t.length) return false
+
+    let map = {}
+    for (let i=0; i<s.length;i++){
+        if (map[s[i]]){
+            map[s[i]]++
+        } else { map[s[i]] = 1}
+    }
+
+    for (let j=0; j<t.length; j++) {
+        if(!map[t[j]]){
+            return false
+        } else {map[t[j]]--}
+    }
+
+    return true
+}
+/*
+validAnagram() takes in two strings and returns true if they are anagrams, words that can be rearranged to make the same word, and false if not
+first you can check the edge case in which the two strings are the same strings, because its an easy check and will save the rest of the process
+second, check if the strings are the same length
+then begin the process of checking characters by creating a map of one the string's characters
+to do this, declare an empty object to be the map
+loop through the first string, one character at a time
+if the character exist in the map already, increment its value by 1 via map[s[i]]++
+if it does not, add it to the map as a key and set its value equal to 1, do NOT make it 0 because 0 is falsy
+after the first string is mapped, loop through the second string, checking if the second string's characters are in the first string's map
+if there is a character in the second string that is not in the map, return false, they are not anagrams
+if the character is, then decrement the character's value in the map
+because we've already checked that the strings are the same length, we don't have to worry about excess or unchecked characters (any map values less than 0 or more than 0)
+finally, if the second string's loop completes without returning false for any unmapped characters, return true, the strings are anagrams
+ */
+
+// console.log(validAnagram("a", "a") === true)
+// console.log(validAnagram("anagram", "nagaralm") === false)
+// console.log(validAnagram("anagram", "nagabrm") === false)
+// console.log(validAnagram("anagram", "margaan") === true)
+// console.log(validAnagram("pizza", "pizza") === true)

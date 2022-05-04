@@ -12,6 +12,9 @@
 11. mergeTwo() takes in the head of two sorted linked lists and returns the head of the two lists merged in sorted ascending order
 12. maxProfit() takes an array of prices, where the index would be the day to buy and the value is the price, and returns the greatest profit that can be achieved in one buy and one sell combo
 13. validPalindrome() takes in a string and returns true if it is the same forwards as backwards and false if not, it only cares about alphanumeric characters
+14. validAnagram() takes in two strings and returns true if they are anagrams, words that can be rearranged to make the same word, and false if not
+15. invertBinaryTree() takes in the root of a binary tree and returns the root of the same binary tree except all branches are inverted
+
 
 
 note to self: don't forget semicolons please
