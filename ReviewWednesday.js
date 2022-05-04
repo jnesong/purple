@@ -21,3 +21,26 @@
 note to self: don't forget semicolons please
 */
 
+// 8. isUnique() takes in an array or string and returns true if each element or character is unique, returns false if not
+//I: an array
+//O: true or false
+
+const isUnique = ( arr ) => {
+    let map = {};
+    for (let i=0; i<arr.length; i++) {
+        if (map[arr[i]]) {
+            return false;
+        } else {
+            map[arr[i]] = 1;
+        }
+    }
+    return true;
+};
+
+// 9. oneAway() takes in two strings and returns true if the strings are only one character different, and false if more than one character different
+
+//I
+
+
+
+// 10. twoSum() takes in an array of numbers and a target sum and returns the INDEXES of the two numbers that sum up to the target, or false if none
