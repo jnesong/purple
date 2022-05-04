@@ -370,7 +370,7 @@ at the end, return profit
 // console.log(maxProfit([7, 6, 4, 3]))
 // console.log(maxProfit([4, 9, 2]))
 
-const validPalindrome = ( s ) => {
+const validPalindrome = (s) => {
     for (let [i, j] = [0, s.length - 1]; i < j;) {
         if (/\W|_/.test(s[i])) { i++ }
         else if (/\W|_/.test(s[j])) { j-- }
@@ -416,21 +416,21 @@ call invertBinaryTree on itself to complete switching the rest of the roots/node
 return the root of the inverted tree, which will technically have the same value as the original root, but its branches have been inverted via recursion
  */
 
-const validAnagram = ( s, t ) => {
-    if (s===t) return true 
+const validAnagram = (s, t) => {
+    if (s === t) return true
     if (s.length !== t.length) return false
 
     let map = {}
-    for (let i=0; i<s.length;i++){
-        if (map[s[i]]){
+    for (let i = 0; i < s.length; i++) {
+        if (map[s[i]]) {
             map[s[i]]++
-        } else { map[s[i]] = 1}
+        } else { map[s[i]] = 1 }
     }
 
-    for (let j=0; j<t.length; j++) {
-        if(!map[t[j]]){
+    for (let j = 0; j < t.length; j++) {
+        if (!map[t[j]]) {
             return false
-        } else {map[t[j]]--}
+        } else { map[t[j]]-- }
     }
 
     return true
@@ -456,3 +456,38 @@ finally, if the second string's loop completes without returning false for any u
 // console.log(validAnagram("anagram", "nagabrm") === false)
 // console.log(validAnagram("anagram", "margaan") === true)
 // console.log(validAnagram("pizza", "pizza") === true)
+
+const binarySearch = ( nums, target ) => {
+    let left = 0
+    let right = nums.length - 1
+    let mid = 0
+
+    while (left <= right) {
+        mid = Math.floor((right - left) / 2 + left)
+        if ( nums[mid] === target ) { return mid }
+        else if (nums[mid]<target){
+            left = mid+1
+        } else { right = mid-1}
+    }
+
+    return -1
+}
+
+/* 
+binarySearch() takes in a sorted array of numbers and a target number and returns the index of the number in the array that matches the target, it uses O(logN) time
+start by setting the left and right to be the indexes of the range that will be checked, starting with the full nums array, index 0 to index nums array length-1
+then, while the left index is less than or equal to the right
+check the middle number of the array to see if it matches the target
+by setting the middle index equal to the right subtracted by the left, divided by two plus the left
+if it does, return that index
+if it does not then see if the middle number is less than the target
+if so the target is in the greater half of the array, so reset the left to be the number right above the middle number and check that range's middle
+if not then the target is in the lower half of the array so reset the right to be the number right below the middle number and check that range's middle
+finally, if the left and right indexes meet, then the whole array has been checked
+return -1 to represent that the target was not found in the array
+*/
+
+// console.log(binarySearch([-1,0,3,5,9,12], 9))
+// console.log(binarySearch([9], 9))
+// console.log(binarySearch([], 9))
+// console.log(binarySearch([12, 19], 9))

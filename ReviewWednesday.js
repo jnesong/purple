@@ -14,6 +14,7 @@
 13. validPalindrome() takes in a string and returns true if it is the same forwards as backwards and false if not, it only cares about alphanumeric characters
 14. validAnagram() takes in two strings and returns true if they are anagrams, words that can be rearranged to make the same word, and false if not
 15. invertBinaryTree() takes in the root of a binary tree and returns the root of the same binary tree except all branches are inverted
+16. binarySearch() takes in an array of numbers and a target number and returns the index of the number in the array that matches the target, it uses O(logN) time
 
 
 
