@@ -369,3 +369,49 @@ at the end, return profit
 // console.log(maxProfit([10, 16, 9, 11, 4, 3]))
 // console.log(maxProfit([7, 6, 4, 3]))
 // console.log(maxProfit([4, 9, 2]))
+
+const validPalindrome = ( s ) => {
+    for (let [i, j] = [0, s.length - 1]; i < j;) {
+        if (/\W|_/.test(s[i])) { i++ }
+        else if (/\W|_/.test(s[j])) { j-- }
+        else {
+            if (s[i].toLowerCase() !== s[j].toLowerCase()) { return false }
+            i++
+            j--
+        }
+    } return true
+}
+
+/*
+validPalindrome() takes in a string and returns true if it is the same forwards as backwards and false if not, it only cares about alphanumeric characters
+Using destructuring, set i and j to loop so that i starts at the first letter and goes to the second and j starts at the last letter and goes to the second to last
+continue the loop so long as the index moving forward is less than the index moving backwards
+ignore the incrementing/decrementing in the for () as we need to manually increment and decrement to skip special characters
+the regex pattern /\W|_/ looks for non-alphanumeric characters or underscores and test returns a boolean, true if the pattern is found or false if not
+if there are non-alphanumeric characters or underscores, skip over them with i++ or j--
+compare any alphanumeric characters
+if they are not equal, return false
+if they are increment i (i++) and decrement j (j--)
+once the loop reaches the end without any false returns (mismatched s[i] or s[j]) then return true, it is a palindrome 
+ */
+
+const invertBinaryTree = (root) => {
+    if (root) {
+        let temp = root.left
+        root.left = root.right
+        root.right = temp
+        invertBinaryTree(root.left)
+        invertBinaryTree(root.right)
+    }
+    return root
+}
+
+/*
+invertBinaryTree() takes in the root of a binary tree and returns the root of the same binary tree except all branches are inverted
+since this uses recursion, first set the recursive stop to be once the argument passed in is null, i.e. the end of the tree's leaves are met
+then invert the tree by using a temp to hold the left branch node
+change the left branch's node to the right branch's node
+then change the right's to temp, the previous left
+call invertBinaryTree on itself to complete switching the rest of the roots/nodes
+return the root of the inverted tree, which will technically have the same value as the original root, but its branches have been inverted via recursion
+ */
