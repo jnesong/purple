@@ -253,11 +253,11 @@ if the loop completes, then one or 0 differences have been found, return true.
 // console.log(oneAway("hi", "hoo") === false)
 // console.log(oneAway("hi", "hi") === true)
 
-const twoSum = ( arr, target ) => {
+const twoSum = (arr, target) => {
     const map = {}
-    for (let i=0; i<arr.length; i++) {
-        let t = target-arr[i]
-        if (map[t] >= 0 ) {
+    for (let i = 0; i < arr.length; i++) {
+        let t = target - arr[i]
+        if (map[t] >= 0) {
             return [map[t], i]
         } else {
             map[arr[i]] = i
@@ -310,7 +310,7 @@ if the loop finishes without finding a twoSum, return false
 //     this.next = nextIn
 // }
 
-const mergeTwo = ( listAHead, listBHead ) => {
+const mergeTwo = (listAHead, listBHead) => {
     if (!listAHead) return listBHead
     if (!listBHead) return listAHead
 
@@ -342,20 +342,30 @@ and so on until the recursion's stop is reached by a falsy/null, completing the 
 
 // console.log(mergeTwo(ll.head, ls.head))
 
-const maxProfit = ( prices ) => {
+const maxProfit = (prices) => {
     let buy = prices[0]
     let profit = 0
 
-    for (let i=1; i <prices.length; i++) {
-        if(prices[i] < buy) {
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] < buy) {
             buy = prices[i]
         }
-        profit = Math.max(prices[i]-buy, profit)
+        profit = Math.max(prices[i] - buy, profit)
     }
     return profit
 }
 
 /*
 maxProfit() takes an array of prices, where the index would be the day to buy and the value is the price, and returns the greatest profit that can be achieved in one buy and one sell combo
-
+start with declaring the variable buy and setting its value to the first day's price
+also declare the variable profit and start at 0, as in if you bought and sold on the same day
+then loop forward through the prices array, one day at a time
+if there is a lower price to buy, we want to see if buying on that day instead could beat the current max profit
+so set buy as that price and as the loop continues, the profit will be updated to that buy's profit if it exceeds the existing max profit
+ultimately, the profit is returned, so it is fine if the buy is changed but does not represent the actual profit's buy day/price
+at the end, return profit
  */
+
+// console.log(maxProfit([10, 16, 9, 11, 4, 3]))
+// console.log(maxProfit([7, 6, 4, 3]))
+// console.log(maxProfit([4, 9, 2]))
