@@ -9,6 +9,8 @@
 8. isUnique() takes in an array or string and returns true if each element or character is unique, returns false if nots
 9. oneAway() takes in two strings and returns true if the strings are only one character different, and false if more than one character different
 10. twoSum() takes in an array of numbers and a target sum and returns the INDEXES of the two numbers that sum up to the target, or false if none
+11. mergeTwo() takes in the head of two sorted linked lists and returns the head of the two lists merged in sorted ascending order
+12. maxProfit() takes an array of prices, where the index would be the day to buy and the value is the price, and returns the greatest profit that can be achieved in one buy and one sell combo
 
 
 note to self: don't forget semicolons please

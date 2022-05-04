@@ -281,5 +281,81 @@ if not, save the current element as a key in the map with its index as the value
 if the loop finishes without finding a twoSum, return false
  */
 
-console.log(twoSum([2, 12, 7, 19, 22, 8, 4, 3], 9))
-console.log(twoSum([12, 19, 22, 4, -3, 7, 8], 9))
+// console.log(twoSum([2, 12, 7, 19, 22, 8, 4, 3], 9))
+// console.log(twoSum([12, 19, 22, 4, -3, 7, 8], 9))
+
+// class LinkedList {
+//     constructor() { // no parameters, default empty linked list
+//         this.head = null// beginning of linked list
+//         this.length = 0
+//     }
+
+//     insertAtHead(data) {
+//         const newNode = new ListNode(data, this.head) //create new node, give it the value of data we want, make the current head the next node
+//         this.head = newNode // new start of list is the new node
+//         this.length++ // increase the length of the LinkedList
+//     }
+// }
+
+// LinkedList.fromValues = function (...values) {
+//     const ll = new LinkedList()
+//     for (let i = values.length - 1; i >= 0; i--) {
+//         ll.insertAtHead(values[i])
+//     }
+//     return ll
+// }
+
+// function ListNode(value = 0, nextIn = null) {
+//     this.val = value
+//     this.next = nextIn
+// }
+
+const mergeTwo = ( listAHead, listBHead ) => {
+    if (!listAHead) return listBHead
+    if (!listBHead) return listAHead
+
+    if (listAHead.val < listBHead.val) {
+        listAHead.next = mergeTwo(listAHead.next, listBHead)
+        return listAHead
+    } else {
+        listBHead.next = mergeTwo(listAHead, listBHead.next)
+        return listBHead
+    }
+
+}
+
+/*
+mergeTwo() takes in the head of two sorted linked lists and returns the head of the two lists merged in sorted ascending order
+Because this function uses recursion, first set the recursion stop
+the recursion stop is when the head of either list is null, a falsy value. Then return the rest of the other list, because in such case, the rest of the other list would be greater than the last value in the completed list
+after setting the stop, the algo can then compare each head value
+if list A's head is smaller, then we want list A's head to start the merge list and then want to compare the next value in list A to the same value in list B
+to do so, we call mergeTwo on itself with list A's head's next and list B's head and make it's return equal to list A's head's next
+in this call, if list A's head is still smaller than list B's, then nothing will change in list A as list A's next will remain, however
+if list B's head is smaller, it will be returned for the merged list's most recent smallest node to point to 
+and so on until the recursion's stop is reached by a falsy/null, completing the merge 
+*/
+
+
+// const ll = LinkedList.fromValues(0, 9, 16)
+// const ls = LinkedList.fromValues(0, 4, 8)
+
+// console.log(mergeTwo(ll.head, ls.head))
+
+const maxProfit = ( prices ) => {
+    let buy = prices[0]
+    let profit = 0
+
+    for (let i=1; i <prices.length; i++) {
+        if(prices[i] < buy) {
+            buy = prices[i]
+        }
+        profit = Math.max(prices[i]-buy, profit)
+    }
+    return profit
+}
+
+/*
+maxProfit() takes an array of prices, where the index would be the day to buy and the value is the price, and returns the greatest profit that can be achieved in one buy and one sell combo
+
+ */
