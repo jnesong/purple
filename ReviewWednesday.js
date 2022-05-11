@@ -25,9 +25,9 @@ note to self: don't forget semicolons please
 //I: an array
 //O: true or false
 
-const isUnique = ( arr ) => {
+const isUnique = (arr) => {
     let map = {};
-    for (let i=0; i<arr.length; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (map[arr[i]]) {
             return false;
         } else {
@@ -37,10 +37,17 @@ const isUnique = ( arr ) => {
     return true;
 };
 
-// 9. oneAway() takes in two strings and returns true if the strings are only one character different, and false if more than one character different
+// 9. oneAway() takes in two strings and returns true if the strings are only one character or less different, and false if more than one character different
+//I: two strings
+//O: true or false
 
-//I
+const oneAway = (s1, s2) => {
+}
 
-
+// console.log(oneAway("hi", "ihii") === false)
+// console.log(oneAway("hi", "") === false)
+// console.log(oneAway("hi", "ho") === true)
+// console.log(oneAway("hi", "hoo") === false)
+// console.log(oneAway("hi", "hi") === true)
 
 // 10. twoSum() takes in an array of numbers and a target sum and returns the INDEXES of the two numbers that sum up to the target, or false if none
