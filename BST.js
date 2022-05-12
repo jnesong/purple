@@ -7,10 +7,19 @@ class Node {
 }
 
 function levelOrderTraversal(root) {
-    const queue = []
-    queue.push([root.value])
-    let x = [root.left.value, root.right.value]
-    queue.push(x)
-    return queue
-}
-
+    const result = []
+    result.push([root.value])
+    let x = innerTraversal(root)
+    result.push(x)
+    return result
+  }
+  
+  function innerTraversal (root){
+    let x = 0
+    if (root) {
+      x = [root.left.value, root.right.value]
+      if (root.left.left !==null) {innerTraversal(root.left)}
+      if (root.right.right !==null) {innerTraversal(root.right)}
+    }
+    return x
+  }
