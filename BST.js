@@ -15,3 +15,25 @@ function levelOrderTraversal(root) {
     }
     return nodes
 }
+
+function levelOrderTraversal(root) {
+    let queue = []
+    let subQ = []
+    subQ.push(root.value)
+    queue.push(subQ)
+    subQ = []
+  
+    if (root.left){
+      subQ.push(root.left.value)
+      console.log("next Left", root.left.left)
+      // if (root.left.left){ levelOrderTraversal(root.left.left)}
+    }
+    if(root.right) {
+      subQ.push(root.right.value)
+      console.log("next Right", root.right.right)
+      
+    }
+    queue.push(subQ)
+  
+    return queue
+  }
