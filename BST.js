@@ -22,18 +22,18 @@ function levelOrderTraversal(root) {
     subQ.push(root.value)
     queue.push(subQ)
     subQ = []
+    const pushToSubQ = (roots) => {
+      subQ.push(roots.value)
+      queue.push(subQ)
+      subQ = []
+    }
+    if (root.left ) {
+      pushToSubQ(root.left)
+    }
+    if (root.right) {
+      pushToSubQ(root.right)
   
-    if (root.left){
-      subQ.push(root.left.value)
-      console.log("next Left", root.left.left)
-      // if (root.left.left){ levelOrderTraversal(root.left.left)}
     }
-    if(root.right) {
-      subQ.push(root.right.value)
-      console.log("next Right", root.right.right)
-      
-    }
-    queue.push(subQ)
   
     return queue
   }
