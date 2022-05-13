@@ -493,5 +493,26 @@ return -1 to represent that the target was not found in the array
 // console.log(binarySearch([12, 19], 9))
 
 const maximumSubArray = ( nums ) => {
+    let currentSum = 0;
+    let max = nums[0];    
+
+    for (let i=0; i<nums.length; i++){
+        currentSum = Math.max(nums[i], currentSum+=nums[i]);
+        max = Math.max(max, currentSum);
+
+    };
+
+    return max;
 
 }
+
+console.log(maximumSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+
+/* 
+maximumSubArray() takes an array of nums and returns the maximum sum possible by adding a contiguous subArray.
+First declare currentSum to start at 0 and declare max as the value of the first number in the array. 
+Then loop forward through the array nums, one number at a time.
+At each number, you can either restart the sum or add the current number to the sum. Check which is largest and set the currentSum to it.
+Then check if that currentSum is greater than the current max. If it is, keep track of it by setting max to it. If not, the max will stay the same. 
+At the end of the loop, return the max, which would be the largest sum. 
+*/
