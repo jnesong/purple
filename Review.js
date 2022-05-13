@@ -491,3 +491,7 @@ return -1 to represent that the target was not found in the array
 // console.log(binarySearch([9], 9))
 // console.log(binarySearch([], 9))
 // console.log(binarySearch([12, 19], 9))
+
+const maximumSubArray = ( nums ) => {
+
+}
