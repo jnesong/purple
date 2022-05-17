@@ -13,7 +13,7 @@ function levelOrderTraversal(root) {
   let queue = [root]
   let result = [root.value]
 
-  addToResult(result, queue, root)
+  addToResult(result, queue, root);
   
   return result;
 }

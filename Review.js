@@ -516,3 +516,41 @@ At each number, you can either restart the sum or add the current number to the 
 Then check if that currentSum is greater than the current max. If it is, keep track of it by setting max to it. If not, the max will stay the same. 
 At the end of the loop, return the max, which would be the largest sum. 
 */
+
+// class Node {
+//     constructor(value, left = null, right = null) {
+//         this.value = value;
+//         this.left = left;
+//         this.right = right;
+//     }
+// }
+
+
+const levelOrderTraversal = (root) => {
+    if (root===null) return [];
+
+    let queue = [root];
+    let result =[root.value];
+
+    addTo(queue, result, root);
+
+    return result;
+};
+
+const addTo = (queue, result, node) => {
+    if (node.left) {
+        queue.push(node.left);
+        result.push(node.left.value);
+    };
+
+    if (node.right) {
+        queue.push(node.right);
+        result.push(node.right.value);
+    }
+
+    queue.shift();
+
+    if (queue.length !== 0 ) {
+        addTo(queue,result, queue[0]);
+    };
+};
