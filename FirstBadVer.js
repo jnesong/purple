@@ -34,7 +34,7 @@ function firstBadVersion ( n ) {
 }
 
 function isBadVersion (n) {
-    if (n<10) { return false }
+    if (n<1) { return false }
     return true
 }
 
