@@ -11,22 +11,32 @@ brute force would be to loop backwards and check every version with isBadVersion
 in which case the first bad version would be the one before the first n to return false 
 */
 
+
 function firstBadVersion ( n ) {
 
-    let x = Math.round(n/2)
+    let left = 0;
+    let right = n;
+    let check = 0;
 
-    if (isBadVersion(1)===true){return 1}
-
-    if (isBadVersion(x)) {
-        if (!isBadVersion(n-1)) { return n }
-        firstBadVersion(Math.ceil(x/2))
-    }
-
-    return firstBadVersion (n+(x))
+    while(left<=right){
+        check = Math.floor( ((right-left)/2)+left );
+        if(isBadVersion(check)===true && isBadVersion(check-1)===false) {
+            return check;
+        } else if(isBadVersion(check) && isBadVersion(check-1)) {
+            right = check-1;
+        } else {
+            left = check+1;
+        }
+    } 
+    
+    return "error: bad version not found"
 
 }
 
 function isBadVersion (n) {
-    if (n<=5) { return false }
+    if (n<10) { return false }
     return true
 }
+
+console.log(firstBadVersion(20))
+console.log(firstBadVersion(12))
