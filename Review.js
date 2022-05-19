@@ -327,7 +327,8 @@ const mergeTwo = (listAHead, listBHead) => {
 /*
 mergeTwo() takes in the head of two sorted linked lists and returns the head of the two lists merged in sorted ascending order
 Because this function uses recursion, first set the recursion stop
-the recursion stop is when the head of either list is null, a falsy value. Then return the rest of the other list, because in such case, the rest of the other list would be greater than the last value in the completed list
+the recursion stop is when the head of either list is null, a falsy value. Then return the rest of the other list, 
+because in such case, the rest of the other list would be greater than the last value in the completed list
 after setting the stop, the algo can then compare each head value
 if list A's head is smaller, then we want list A's head to start the merge list and then want to compare the next value in list A to the same value in list B
 to do so, we call mergeTwo on itself with list A's head's next and list B's head and make it's return equal to list A's head's next
@@ -356,7 +357,8 @@ const maxProfit = (prices) => {
 }
 
 /*
-maxProfit() takes an array of prices, where the index would be the day to buy and the value is the price, and returns the greatest profit that can be achieved in one buy and one sell combo
+maxProfit() takes an array of prices, where the index would be the day to buy and the value is the price, and returns the greatest profit
+that can be achieved in one buy and one sell combo
 start with declaring the variable buy and setting its value to the first day's price
 also declare the variable profit and start at 0, as in if you bought and sold on the same day
 then loop forward through the prices array, one day at a time
@@ -476,13 +478,15 @@ const binarySearch = ( nums, target ) => {
 /* 
 binarySearch() takes in a sorted array of numbers and a target number and returns the index of the number in the array that matches the target, it uses O(logN) time
 start by setting the left and right to be the indexes of the range that will be checked, starting with the full nums array, index 0 to index nums array length-1
-then, while the left index is less than or equal to the right
+then, while the left index (the first in the range) is less than or equal to the right index (the last in the range)
 check the middle number of the array to see if it matches the target
-by setting the middle index equal to the right subtracted by the left, divided by two plus the left
+by setting the middle index equal to the right subtracted by the left (this gets how many numbers in the new range),
+divided by two (this is the middle of the range)
+plus the left (this sets the range to the appropriate indexes)
 if it does, return that index
 if it does not then see if the middle number is less than the target
-if so the target is in the greater half of the array, so reset the left to be the number right above the middle number and check that range's middle
-if not then the target is in the lower half of the array so reset the right to be the number right below the middle number and check that range's middle
+if so the target is in the greater half of the range, so reset the left to be the number right above the middle number and check that range's middle
+if not then the target is in the lower half of the range so reset the right to be the number right below the middle number and check that range's middle
 finally, if the left and right indexes meet, then the whole array has been checked
 return -1 to represent that the target was not found in the array
 */
