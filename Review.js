@@ -558,3 +558,18 @@ const addTo = (queue, result, node) => {
         addTo(queue,result, queue[0]);
     };
 };
+
+/*
+levelOrderTraversal() takes the root of a binary tree and prints all the values of the tree's nodes in level-order/breadth-first-search in a flattened array. 
+First check the edge case in which the tree is empty, aka the root is null, and return an empty array if so.
+Then declare two arrays. One is the queue, to keep track of order. The other is the result, to keep track of the values to be printed in an array.
+The queue should start with the root node, as is given. The result should start with that node's, the root's, value.
+We then create a function that will take these two arrays, the queue and result, and add to them. 
+The function is called addTo() and also takes a "root" or current node to work off.
+addTo() checks whether its given/argument node has a left node. If it does, then add that node to the queue and add its value to the result. 
+And does the same check and add for the right node.
+The rest of addTo() highlights the importance of the queue, because we can now remove that node from the queue, having added its child's values to result,
+and now, if there are any nodes left in the queue, call addTo() on the first node in the queue to recursively re-check and add the next level-order nodes. 
+at the stop of addTo(), when the last node has been queue.shift() off the queue and the queue is empty,
+the original levelOrderTraversal function will return the result- the array of values, listed from the order of the queue. 
+ */
