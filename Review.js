@@ -580,6 +580,7 @@ Objects/arrays are pass by reference while primitive data types (boolean, number
 are pass by value. Pass by reference allows us to pass objects as arguments 
 into a recursion without needing to return the recursion. Because it pulls from the same reference, 
 the object or array will be changed outside of that function’s scope. 
+But is this pass by reference or pointer?
 */
 
 // const alphabet = {a:1, b:2}
