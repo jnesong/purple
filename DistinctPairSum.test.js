@@ -11,7 +11,9 @@ test('returns empty array if no pairs that sum to k', () => {
     expect(distinctPairSum([20], 100)).toEqual([])
 })
 
-/* For primitive types (e.g. numbers, booleans, strings, etc.), there is no difference between toBe and toEqual; either one will work for 5, true, or "the cake is a lie".
+/* For primitive types (e.g. numbers, booleans, strings, etc.), 
+there is no difference between toBe and toEqual; 
+either one will work for 5, true, or "the cake is a lie".
 But... toBe compares the referential identity of values, while
 toEqual does a deep comparison of the properties of the values (using Object.is).
- toEqual is therefore better suited for objects, unless it is really crucial that an object is the same instance. */
+toEqual is therefore better suited for objects, unless it is really crucial that an object is the same instance. */

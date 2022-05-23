@@ -510,7 +510,7 @@ const maximumSubArray = ( nums ) => {
 
 }
 
-console.log(maximumSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
+// console.log(maximumSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]))
 
 /* 
 maximumSubArray() takes an array of nums and returns the maximum sum possible by adding a contiguous subArray.
@@ -573,3 +573,25 @@ and now, if there are any nodes left in the queue, call addTo() on the first nod
 at the stop of addTo(), when the last node has been queue.shift() off the queue and the queue is empty,
 the original levelOrderTraversal function will return the result- the array of values, listed from the order of the queue. 
  */
+
+
+/*
+Objects/arrays are pass by reference while primitive data types (boolean, numbers, strings, null, undefined) 
+are pass by value. Pass by reference allows us to pass objects as arguments 
+into a recursion without needing to return the recursion. Because it pulls from the same reference, 
+the object or array will be changed outside of that function’s scope. 
+*/
+
+// const alphabet = {a:1, b:2}
+// const c = 3
+
+// const test = ( object, number) => {
+//     object.a++
+//     number++
+//     return number
+// }
+
+// test(alphabet, c)
+// console.log(alphabet)
+// console.log(c)
+// console.log(test(alphabet, c))
