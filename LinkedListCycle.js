@@ -3,8 +3,8 @@ I: head of linked list
 O: boolean
 C: max ten thousand nodes
 E: repeating values, tail cycles to head
-Time Complexity: 
-Space Complexity: 
+Time Complexity: O(n)
+Space Complexity: O(n)
 */
 
 const hasCycle = (head) => {

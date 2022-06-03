@@ -580,7 +580,7 @@ Objects/arrays are pass by reference while primitive data types (boolean, number
 are pass by value. Pass by reference allows us to pass objects as arguments 
 into a recursion without needing to return the recursion. Because it pulls from the same reference, 
 the object or array will be changed outside of that function’s scope. 
-But is this pass by reference or pointer?
+But is this pass by reference or point to memory ID, what is the difference?
 */
 
 // const alphabet = {a:1, b:2}
@@ -596,3 +596,59 @@ But is this pass by reference or pointer?
 // console.log(alphabet)
 // console.log(c)
 // console.log(test(alphabet, c))
+
+
+class myQueue {
+    constructor (limit) {
+        this.stackA = []
+        this.stackB = []
+        this.size = 0
+        this.limit = limit
+    }
+
+    queue() {
+        for (let i=this.stackA.length-1; i>=0; i--){
+            this.stackB.push(this.stackA[i])
+        }
+        return this.stackB
+    }
+
+    push(element) {
+        if (this.size<this.limit){
+            this.stackA.push(element)
+            this.size++
+        }
+        return element
+    }
+
+    pop(){
+        this.stackB = []
+        for (let i=this.stackA.length-1; i>=0; i--){
+            this.stackB.push(this.stackA[i])
+        }
+        let front = this.stackB.pop()
+        this.stackA=[]
+        for (let i=this.stackB.length-1; i>=0; i--) {
+            this.stackA.push(this.stackB[i])
+        }
+        this.stackB=[]
+        this.size--
+        return x
+    }
+
+    peek(){
+        return this.stackA[0] // Returns the element at the front of the queue.
+    }
+
+    empty(){
+        if(this.size<1) return true
+        else return false
+    }
+
+    full(){
+        if (this.size===this.limit) return true
+        else return false
+    }
+}
+/* myQueue() constructs a queue (FIFO), using to 2 stacks, with the methods push, pop, peek (FO), empty, and full. 
+It only uses standard stack operations i.e. push, peek (FO), pop (LIFO), size, and empty. */

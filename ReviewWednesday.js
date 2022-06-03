@@ -17,6 +17,8 @@
 16. binarySearch() takes in an array of numbers and a target number and returns the index of the number in the array that matches the target, it uses O(logN) time
 17. maximumSubArray() takes an array of nums and returns the maximum sum possible by adding a contiguous subArray.
 18. levelOrderTraversal() takes the root of a binary tree and prints all the values of the tree's nodes in level-order/breadth-first-search in a flattened array. 
+19. myQueue() constructs a queue (FIFO), using to 2 stacks, with the methods push, pop, peek (FO), empty, and full. 
+
 
 
 
