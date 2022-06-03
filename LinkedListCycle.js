@@ -1,8 +1,21 @@
 /* 
-I:
-O: 
-C: 
-E: 
+I: head of linked list
+O: boolean
+C: max ten thousand nodes
+E: repeating values, tail cycles to head
 Time Complexity: 
 Space Complexity: 
 */
+
+const hasCycle = (head) => {
+    let map = new Map();
+    let current = head
+    while (current !==null) {
+        map.set(current, 1)
+    if (map.has(current.next)) return true
+    else if (current.next===null) return false
+    else current = current.next
+}
+    
+    return false
+};
