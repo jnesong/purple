@@ -17,17 +17,21 @@ Space Complexity:
 
 
 function isBalanced(root) {
-    if (!root) return true; // current node is not-true (null)), return true
-    
-    if (Math.abs( getHeight(root.left)-getHeight(root.right) )>1) return false;
+    if (root===null) return true; //if the root is null, then its balanced, return true 
 
-    return isBalanced(root.left) && isBalanced(root.right);
+    return getHeight(root)!==-1;
 };
 
-function getHeight(root) {
-    if(!root) return 0; //current node is not-true (null), return 0
-    let left = getHeight(root.left);
-    let right = getHeight(root.right);
-    return Math.max(left, right) +1;
-};
+function getHeight (node){
+    if (node===null) return 0;
+
+    let left = getHeight(node.left); //recursion moves the start to the very last left node
+    let right = getHeight(node.right); //recursion moves the start to the very last right node
+
+    //now check if unbalanced, if unbalanced make its value/ the return of getHeight -1
+    if( Math.abs(left-right)>1 || left===-1 || right===-1) {
+        return -1; // carries any -1s up the tree
+    };
+    return Math.max(left, right)+1; // returns max height (bw left and right) plus one to account for the current tree level
+}
 
