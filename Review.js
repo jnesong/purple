@@ -652,3 +652,13 @@ class myQueue {
 }
 /* myQueue() constructs a queue (FIFO), using to 2 stacks, with the methods push, pop, peek (FO), empty, and full. 
 It only uses standard stack operations i.e. push, peek (FO), pop (LIFO), size, and empty. */
+
+const hasCycle = () => {
+
+};
+
+/* hasCycle() takes the head of a linked list and determines if there is a cycle within the list- where some node in the list can be reached again
+by following the next pointer. */
+
+/* firstBadVersion() takes the total number of versions and finds the first bad version that causes all following versions to be bad 
+using the API bool isBadVersion(version) which returns whether the argument version is bad. */
