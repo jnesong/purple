@@ -18,41 +18,11 @@
 17. maximumSubArray() takes an array of nums and returns the maximum sum possible by adding a contiguous subArray.
 18. levelOrderTraversal() takes the root of a binary tree and prints all the values of the tree's nodes in level-order/breadth-first-search in a flattened array. 
 19. myQueue() constructs a queue (FIFO), using to 2 stacks, with the methods push, pop, peek (FO), empty, and full. 
-
-
-
+20. isBalanced() takes the root of a binary tree and returns whether the tree is balanced. A binary tree is balanced if the left and right subtrees of every node differ in height by no more than 1.
+21. hasCycle() takes the head of a linked list and determines if there is a cycle within the list- where some node in the list can be reached again by following the next pointer.
+22. firstBadVersion() takes the total number of versions and finds the first bad version that causes all following versions to be bad using the API bool isBadVersion(version) which returns whether the argument version is bad.
 
 
 note to self: don't forget semicolons please
 */
 
-// 8. isUnique() takes in an array or string and returns true if each element or character is unique, returns false if not
-//I: an array
-//O: true or false
-
-const isUnique = (arr) => {
-    let map = {};
-    for (let i = 0; i < arr.length; i++) {
-        if (map[arr[i]]) {
-            return false;
-        } else {
-            map[arr[i]] = 1;
-        }
-    }
-    return true;
-};
-
-// 9. oneAway() takes in two strings and returns true if the strings are only one character or less different, and false if more than one character different
-//I: two strings
-//O: true or false
-
-const oneAway = (s1, s2) => {
-}
-
-// console.log(oneAway("hi", "ihii") === false)
-// console.log(oneAway("hi", "") === false)
-// console.log(oneAway("hi", "ho") === true)
-// console.log(oneAway("hi", "hoo") === false)
-// console.log(oneAway("hi", "hi") === true)
-
-// 10. twoSum() takes in an array of numbers and a target sum and returns the INDEXES of the two numbers that sum up to the target, or false if none

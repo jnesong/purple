@@ -19,11 +19,11 @@ Space Complexity:
 function isBalanced(root) {
     if (root===null) return true; //if the root is null, then its balanced, return true 
 
-    return getHeight(root)!==-1;
+    return getHeight(root)!==-1; // returns true if all nodes as roots are not -1 return, returns false if any become -1
 };
 
 function getHeight (node){
-    if (node===null) return 0;
+    if (node===null) return 0; // stop recursion case
 
     let left = getHeight(node.left); //recursion moves the start to the very last left node
     let right = getHeight(node.right); //recursion moves the start to the very last right node

@@ -650,15 +650,44 @@ class myQueue {
         else return false
     }
 }
-/* myQueue() constructs a queue (FIFO), using to 2 stacks, with the methods push, pop, peek (FO), empty, and full. 
-It only uses standard stack operations i.e. push, peek (FO), pop (LIFO), size, and empty. */
+/*
+myQueue() constructs a queue (FIFO), using to 2 stacks, with the methods push, pop, peek (FO), empty, and full. 
+It only uses standard stack operations i.e. push, peek (FO), pop (LIFO), size, and empty.
+*/
+
+
+const isBalanced = ( root ) => {
+    if (root === null) return true;
+    return getHeight(root) !== -1;
+}
+
+function getHeight (node) {
+    if (node === null ) return 0;
+
+    let left = getHeight(node.left);
+    let right = getHeight(node.right);
+
+    if (left===-1 || right === -1 || Math.abs(left-right)>1) {
+        return -1
+    }
+
+    return Math.max(left, right)+1
+}
+/* 
+isBalanced() takes the root of a binary tree and returns whether the tree is balanced.
+A binary tree is balanced if the left and right subtrees of every node differ in height by no more than 1.
+*/
 
 const hasCycle = () => {
 
 };
 
-/* hasCycle() takes the head of a linked list and determines if there is a cycle within the list- where some node in the list can be reached again
-by following the next pointer. */
+/* 
+hasCycle() takes the head of a linked list and determines if there is a cycle within the list- where some node in the list can be reached again
+by following the next pointer.
+*/
 
-/* firstBadVersion() takes the total number of versions and finds the first bad version that causes all following versions to be bad 
-using the API bool isBadVersion(version) which returns whether the argument version is bad. */
+/*
+firstBadVersion() takes the total number of versions and finds the first bad version that causes all following versions to be bad 
+using the API bool isBadVersion(version) which returns whether the argument version is bad.
+*/
