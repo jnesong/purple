@@ -21,6 +21,7 @@
 20. isBalanced() takes the root of a binary tree and returns whether the tree is balanced. A binary tree is balanced if the left and right subtrees of every node differ in height by no more than 1.
 21. hasCycle() takes the head of a linked list and determines if there is a cycle within the list- where some node in the list can be reached again by following the next pointer.
 22. firstBadVersion() takes the total number of versions and finds the first bad version that causes all following versions to be bad using the API bool isBadVersion(version) which returns whether the argument version is bad.
+23. searchInsert() takes an array of sorted integers and a target number. It returns the index of the target number, if found in the array. Otherwise, it returns the index where the target number would be inserted if inserted.
 
 
 note to self: don't forget semicolons please

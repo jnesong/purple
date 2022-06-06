@@ -687,7 +687,18 @@ hasCycle() takes the head of a linked list and determines if there is a cycle wi
 by following the next pointer.
 */
 
+const firstBadVersion = () => {
+
+}
+
 /*
 firstBadVersion() takes the total number of versions and finds the first bad version that causes all following versions to be bad 
 using the API bool isBadVersion(version) which returns whether the argument version is bad.
 */
+
+const searchInsert = () => {
+
+}
+
+/* searchInsert() takes an array of sorted integers and a target number. It returns the index of the target number, if found in the array.
+Otherwise, it returns the index where the target number would be inserted if inserted. */

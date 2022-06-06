@@ -23,20 +23,27 @@ Space Complexity: O(1)
             left = check+1;
         }
     };
-    return left
+    return left;
 };
 
-console.log(searchInsert([1,3,5,6], 2))
-//t:2
+console.log(searchInsert([1,3,5,7], 6))
 
-//l: 0
+//l:0
 //r: 3
-//check: 1
+// check: 1
 //nums[check]: 3
 
-//l: 0
-//r: 0
-//check: 0
-//nums[check]: 1
+//l: 2
+//r: 3
+// check: 0+2 = 2 
+//nums[check]: 5
 
-//l:1 now left is greater than right and loop ends. returns 1. 
+//l: 3
+//r:3
+//check: 3
+//nums[check]: 7
+
+//l:3
+//r:2
+// end loop bc l>r
+// left = 3
