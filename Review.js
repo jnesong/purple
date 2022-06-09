@@ -30,7 +30,7 @@ findFirstDuplicate() takes in an array and outputs the first repeated element
 first declare an empty object to use as a hash map
 loop through the array, one element at a time
 first check if the element already exist as a key in the map
-if it does, its a dupe, so return it
+if it does, it's a dupe, so return it
 if not, then add it as a key to the array with a truthy value
 so as the loop continues it will have easy access to check for pre-visited elements in the array, via the map/first if(obj[arr[i]])
 if there are no dupes, the for loop will end and -1 will be returned to indicate no dupes
@@ -53,7 +53,8 @@ const fibonacci = (num) => {
 }
 
 /*
-fibonacci() takes in a number and returns that number element in the fibonacci sequence, a sequence where each element is the sum of the two elements before it
+fibonacci() takes in a number and returns that number element in the fibonacci sequence,
+a sequence where each element is the sum of the two elements before it
 first declare an array with the first two elements in the fibonacci sequence, 0 and 1
 then begin constructing the sequence by starting at i=2, since we already have the first two elements, up until the num given
 we construct one element at a time by pushing the sum of the last two elements in the fibonacci onto the same fibonacci array
@@ -175,12 +176,12 @@ const balancingParentheses = (s) => {
 }
 
 /*
-balancingParentheses() takes a string of only () {} or [] characters and returns whether it each opening parentheses is appropriately closed
+balancingParentheses() takes a string of only () {} or [] characters and returns whether each opening parentheses is appropriately closed
 first declare an empty stack to store left parentheses
 loop forward through the string, one character at a time
 if it is left/opening parentheses push it on the stack to await to be matched
 if not an opening, check the remaining right/closing options
-for the right does not match the top of the stack, return false
+if the right does not match the top of the stack, return false
 if it does it will be removed via the stack.pop() and the for loop will continue
 at the end of the string, all openings should be closed to be valid, thus the length of the stack would need to be 0
 if it is not 0, there are some unclosed openings, therefore return false 
@@ -516,7 +517,8 @@ const maximumSubArray = ( nums ) => {
 maximumSubArray() takes an array of nums and returns the maximum sum possible by adding a contiguous subArray.
 First declare currentSum to start at 0 and declare max as the value of the first number in the array. 
 Then loop forward through the array nums, one number at a time.
-At each number, you can either restart the sum or add the current number to the sum. Check which is largest and set the currentSum to it.
+At each number, you can either restart the sum or add the current number to the sum. 
+Check which is largest and set the currentSum to it.
 Then check if that currentSum is greater than the current max. If it is, keep track of it by setting max to it. If not, the max will stay the same. 
 At the end of the loop, return the max, which would be the largest sum. 
 */
@@ -633,7 +635,7 @@ class myQueue {
         }
         this.stackB=[]
         this.size--
-        return x
+        return front
     }
 
     peek(){
@@ -656,7 +658,7 @@ It only uses standard stack operations i.e. push, peek (FO), pop (LIFO), size, a
 */
 
 
-const isBalanced = ( root ) => {
+const isBalanced = (root) => {
     if (root === null) return true;
     return getHeight(root) !== -1;
 }
@@ -676,19 +678,55 @@ function getHeight (node) {
 /* 
 isBalanced() takes the root of a binary tree and returns whether the tree is balanced.
 A binary tree is balanced if the left and right subtrees of every node differ in height by no more than 1.
+First check the edge case if the root is null, the tree is balanced, and return true.
+Then return whether the helper function getHeight()'s return is not equal to -1. 
+getHeight() takes any node and first checks if the node is null, in which case it is a leaf node.
+The height count can then start at 0 by returning null for the leaf node.
+Next it sets the variable left equal to the height or getHeight() return of the given node's left node.
+Same for the right.
+Then it uses these variables to either carry up -1, from a previously unbalanced level, by returning -1 if 
+left or right is equal to -1. Or returning -1 if the difference between the left and right branches/heights is
+greater than 1. 
+If none of those are true, the height is created by taking the max height of the left or right branch and adding 1 to it. 
 */
 
-const hasCycle = () => {
-
+const hasCycle = (head) => {
+    let map = new Map();
+    let current = head;
+    while (current !== null) {
+        map.set(current, 1)
+        if (map.has(current.next)) return true
+        else current = current.next
+    };
+    return false;
 };
 
 /* 
 hasCycle() takes the head of a linked list and determines if there is a cycle within the list- where some node in the list can be reached again
 by following the next pointer.
+It starts by declaring a map to keep track of previously visited nodes. 
+Then declares current, to guide looping through the linked list, starting with the head node.
+While current is not null/the end of the linked list, add the current node into the map with a value of 1. 
+Then check if the map has the current node's next value, which would mean the current node is looping back to a node
+that was already added to the map. If it is, return true. Otherwise, move onto the next node by setting current to the current node's next. 
+Finally, if the loop completes and true is not returned, return false - the linked list does not cycle. 
 */
 
-const firstBadVersion = () => {
+const firstBadVersion = (n) => {
+    let left = 0;
+    let right = n;
+    let check = 0;
 
+    while(left<=right){
+        check = Math.floor( ((right-left)/2)+left );
+        if(isBadVersion(check)===true && isBadVersion(check-1)===false) {
+            return check;
+        } else if(isBadVersion(check) && isBadVersion(check-1)) {
+            right = check-1;
+        } else {
+            left = check+1;
+        }
+    } 
 }
 
 /*
@@ -697,8 +735,52 @@ using the API bool isBadVersion(version) which returns whether the argument vers
 */
 
 const searchInsert = () => {
-
+    let left = 0;
+    let right = nums.length-1;
+    let check;
+    
+    while (left <= right) {
+        check = Math.floor( (right-left)/2 ) + left;
+        if (nums[check] === target) {
+            return check;
+        } else if (nums[check]>target) {
+            right = check-1;
+        } else { 
+            left = check+1;
+        }
+    };
+    return left;
 }
 
-/* searchInsert() takes an array of sorted integers and a target number. It returns the index of the target number, if found in the array.
-Otherwise, it returns the index where the target number would be inserted if inserted. */
+/* 
+searchInsert() takes an array of sorted integers and a target number. It returns the index of the target number, if found in the array.
+Otherwise, it returns the index where the target number would be inserted if inserted. 
+*/
+
+function mergeSort(arr) {
+    if (arr.length < 2) {return arr};
+    let mid = arr.length / 2;
+    const left = arr.splice(0, mid);
+    return (helperMerge(mergeSort(left), mergeSort(arr)));
+}
+
+function helperMerge (leftArr, rightArr){
+    const newArr = [];
+    let l = 0;
+    let r = 0;
+    while (l < leftArr.length && r < rightArr.length ){
+        if (leftArr[l] < rightArr[r]){
+            newArr.push(leftArr[l]);
+            l++;
+        } else {
+            newArr.push(rightArr[r]);
+            r++;
+        }
+    }
+    return [...newArr, ...leftArr.slice(l), ...rightArr.slice(r)]
+}
+
+
+/*
+mergeSort() takes in an array of nums and sorts its values in ascending order
+ */

@@ -22,8 +22,53 @@
 21. hasCycle() takes the head of a linked list and determines if there is a cycle within the list- where some node in the list can be reached again by following the next pointer.
 22. firstBadVersion() takes the total number of versions and finds the first bad version that causes all following versions to be bad using the API bool isBadVersion(version) which returns whether the argument version is bad.
 23. searchInsert() takes an array of sorted integers and a target number. It returns the index of the target number, if found in the array. Otherwise, it returns the index where the target number would be inserted if inserted.
+24. mergeSort() takes in an array of nums and sorts its values in ascending order
 
 
 note to self: don't forget semicolons please
 */
 
+// oneAway() takes in two strings and returns true if the strings are only one character different, and false if more than one character different
+
+const oneAway = (stringA, stringB) => {
+    let edit = 1
+    let maxLength = Math.max(stringA.length, stringB.length)
+    let diff = Math.abs(stringA.length-stringB.length)
+    if (diff>edit) {return false}
+    
+    for (i=0, j=0; i<maxLength, j<maxLength; i++, j++){
+        if (stringA[i]!==stringB[j]){
+            edit--
+            if (edit<0) {return false}
+            else if (stringA[i]===stringB[j+1]) {j++}
+            else if (stringA[i+1]===stringB[j]) {i++}
+        }
+    }
+
+    return true
+}
+//forgot to check distance in string length
+//skip in the string whose next letter matches the other string's current letter to match them up
+
+// twoSum() takes in an array of numbers and a target sum and returns the INDEXES of the two numbers that sum up to the target, or false if none
+
+const twoSum = ( nums, target ) => {
+    const map = {}
+    for (i=0; i<nums.length; i++) {
+        let t = target-nums[i]
+        if (map[t]>=0) {return [i, map[t]]}
+        else {
+            map[nums[i]] = i 
+        }
+    }
+
+    return "no two sum"
+
+}
+//forgot greater than or equal to 0 to account of falsey 0 index 
+
+//mergeSort() takes in an array of nums and sorts its values in ascending order
+
+// 13. validPalindrome() takes in a string and returns true if it is the same forwards as backwards and false if not, it only cares about alphanumeric characters
+
+// 14. validAnagram() takes in two strings and returns true if they are anagrams, words that can be rearranged to make the same word, and false if not
